@@ -29,7 +29,7 @@ public class AdapterRandomUsers  {
     public AdapterRandomUsers(Context context, List<ModelUser> userList) {
         this.context = context;
         this.userList = userList;
-        final String hisUID = userList.get(2).getUid();
+        final String hisUID = userList.get(3).getUid();
         Intent intent = new Intent(context, ChatActivity.class);
         intent.putExtra("hisUid", hisUID);
         context.startActivity(intent);
