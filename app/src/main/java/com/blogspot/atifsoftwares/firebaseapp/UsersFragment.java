@@ -77,8 +77,6 @@ public class UsersFragment extends Fragment {
         //김건호 버튼초기화
         btn=(ImageButton)view.findViewById(R.id.randomchatbtn);
         btn.setOnClickListener(new Button.OnClickListener() {
-            String hisUID="WBOAGjXA7cUexTdbGh7k4c6Lkm22";
-            @Override
             public void onClick(View view)
             {//gunho : randomchat call
                 adapterRandomUsers = new AdapterRandomUsers(getActivity(), userList);
