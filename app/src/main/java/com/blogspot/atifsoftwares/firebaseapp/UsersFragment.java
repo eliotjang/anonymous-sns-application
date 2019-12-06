@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.blogspot.atifsoftwares.firebaseapp.adapters.AdapterUsers;
 import com.blogspot.atifsoftwares.firebaseapp.models.ModelUser;
@@ -41,7 +42,7 @@ public class UsersFragment extends Fragment {
     RecyclerView recyclerView;
     AdapterUsers adapterUsers;
     List<ModelUser> userList;
-    Button btn; // 랜덤채팅버튼
+    ImageButton btn; // 랜덤채팅버튼
 
     //firebase auth
     FirebaseAuth firebaseAuth;
@@ -72,7 +73,7 @@ public class UsersFragment extends Fragment {
         getAllUsers();
 
         //김건호 버튼초기화
-        btn=(Button)view.findViewById(R.id.randomchatbtn);
+        btn=(ImageButton)view.findViewById(R.id.randomchatbtn);
         btn.setOnClickListener(new Button.OnClickListener() {
             String hisUID="WBOAGjXA7cUexTdbGh7k4c6Lkm22";
             @Override

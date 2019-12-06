@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UsersFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="278dp"
-        android:layout_height="268dp"
-        android:background="#00D57373"
-        android:contentDescription="@string/randomchatting"
-        android:src="@drawable/questionmark"
-        tools:src="@drawable/questionmark" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/users_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    //김건호 버튼 추가
-    <Button
+
+    <ImageButton
         android:id="@+id/randomchatbtn"
         android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_height="100dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="440dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/questionmark"
+        android:scaleType="centerInside"
+        android:src="@drawable/questionmark" />
+
 </FrameLayout>
