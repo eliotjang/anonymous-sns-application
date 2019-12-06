@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1EDED"
+    tools:context=".ChatActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!--Receiver profile picture-->
+        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+            android:id="@+id/proifleIv"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_default"
+            app:c_background_color="@color/colorPrimaryDark" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!--Receiver name-->
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="His Name"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <!--Receiver status i.e. online or offline
+            will implement later-->
+            <TextView
+                android:id="@+id/userStatusTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="online"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--RecyclerView-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/chatLayout"
+        android:layout_below="@id/toolbar" />
+
+    <!--send message edit text and button in layout-->
+    <LinearLayout
+        android:id="@+id/chatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <!--ImageButton: to send image-->
+        <ImageButton
+            android:id="@+id/attachBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:src="@drawable/ic_attatch_black"/>
+
+        <!--EditText: input message-->
+        <EditText
+            android:id="@+id/messageEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="Start typing"
+            android:inputType="textCapSentences|textMultiLine"
+            android:padding="15dp" />
+        <!--Button: send message-->
+        <ImageButton
+            android:id="@+id/sendBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@drawable/ic_send" />
+    </LinearLayout>
+
+
+</RelativeLayout>

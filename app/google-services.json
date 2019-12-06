@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "68955392220",
+    "firebase_url": "https://modazal-c6a35.firebaseio.com",
+    "project_id": "modazal-c6a35",
+    "storage_bucket": "modazal-c6a35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68955392220:android:8c44734fd078128c650c19",
+        "android_client_info": {
+          "package_name": "com.blogspot.atifsoftwares.firebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68955392220-a2uq01dtge52u8fitvv7f41v3p90cnhh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrcEgfb9OneKxXurfCQjaLsmqtbixD5g8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68955392220-a2uq01dtge52u8fitvv7f41v3p90cnhh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
