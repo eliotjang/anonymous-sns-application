@@ -80,11 +80,8 @@ public class UsersFragment extends Fragment {
             String hisUID="WBOAGjXA7cUexTdbGh7k4c6Lkm22";
             @Override
             public void onClick(View view)
-            {
+            {//gunho : randomchat call
                 adapterRandomUsers = new AdapterRandomUsers(getActivity(), userList);
-//                Intent intent = new Intent(getActivity(), ChatActivity.class);
-//                intent.putExtra("hisUid", hisUID);
-//                getActivity().startActivity(intent);
             }
         });
         return view;

@@ -103,6 +103,7 @@ public class ChatActivity extends AppCompatActivity {
     String hisUid;
     String myUid;
     String hisImage;
+    String sw; // 익명인지 아닌지
 
 
     //volley request queue for notification
@@ -160,7 +161,7 @@ public class ChatActivity extends AppCompatActivity {
          * user*/
         Intent intent = getIntent();
         hisUid = intent.getStringExtra("hisUid");
-
+        sw=intent.getStringExtra("sw");
         //firebase auth instance
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -200,13 +201,17 @@ public class ChatActivity extends AppCompatActivity {
                     }
 
                     //set data
-                    nameTv.setText(name);
-                    try {
-                        //image received, set it to imageview in toolbar
-                        Picasso.get().load(hisImage).placeholder(R.drawable.ic_default_img_white).into(profileIv);
-                    } catch (Exception e) {
-                        //there is exception getting picture, set default picture
-                        Picasso.get().load(R.drawable.ic_default_img_white).into(profileIv);
+                    if(sw.equals("ok"))
+                        nameTv.setText("익명");
+                    else {
+                        nameTv.setText(name);
+                        try {
+                            //image received, set it to imageview in toolbar
+                            Picasso.get().load(hisImage).placeholder(R.drawable.ic_default_img_white).into(profileIv);
+                        } catch (Exception e) {
+                            //there is exception getting picture, set default picture
+                            Picasso.get().load(R.drawable.ic_default_img_white).into(profileIv);
+                        }
                     }
                 }
             }

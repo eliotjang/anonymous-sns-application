@@ -84,6 +84,7 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
                              * we will use that UID to identify the user we are gonna chat*/
                             Intent intent = new Intent(context, ChatActivity.class);
                             intent.putExtra("hisUid", hisUID);
+                            intent.putExtra("sw","no");
                             context.startActivity(intent);
                         }
                     }
