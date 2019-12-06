@@ -48,7 +48,7 @@ public class AdapterChatlist extends RecyclerView.Adapter<AdapterChatlist.MyHold
         String lastMessage = lastMessageMap.get(hisUid);
 
         //set data
-        myHolder.nameTv.setText("익명");
+        myHolder.nameTv.setText(userName);
         if (lastMessage==null || lastMessage.equals("default")){
             myHolder.lastMessageTv.setVisibility(View.GONE);
         }
@@ -56,12 +56,12 @@ public class AdapterChatlist extends RecyclerView.Adapter<AdapterChatlist.MyHold
             myHolder.lastMessageTv.setVisibility(View.VISIBLE);
             myHolder.lastMessageTv.setText(lastMessage);
         }
-//        try {
-//            Picasso.get().load(userImage).placeholder(R.drawable.ic_default_img).into(myHolder.profileIv);
-//        }
-//        catch (Exception e){
-//            Picasso.get().load(R.drawable.ic_default_img).into(myHolder.profileIv);
-//        }
+        try {
+            Picasso.get().load(userImage).placeholder(R.drawable.ic_default_img).into(myHolder.profileIv);
+        }
+        catch (Exception e){
+            Picasso.get().load(R.drawable.ic_default_img).into(myHolder.profileIv);
+        }
         //set online status of other users in chatlist
         if (userList.get(i).getOnlineStatus().equals("online")){
             //online
@@ -79,7 +79,6 @@ public class AdapterChatlist extends RecyclerView.Adapter<AdapterChatlist.MyHold
                 //start chat activity with that user
                 Intent intent = new Intent(context, ChatActivity.class);
                 intent.putExtra("hisUid", hisUid);
-                intent.putExtra("sw","ok");
                 context.startActivity(intent);
             }
         });
