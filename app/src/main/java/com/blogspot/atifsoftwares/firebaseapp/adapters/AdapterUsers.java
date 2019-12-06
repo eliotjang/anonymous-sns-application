@@ -49,16 +49,16 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
         final String userEmail = userList.get(i).getEmail();
 
         //set data
-        myHolder.mNameTv.setText("익명");//userName
-        myHolder.mEmailTv.setText("익명");//userEmail
-//        try {
-//            Picasso.get().load(userImage)
-//                    .placeholder(R.drawable.ic_default_img)
-//                    .into(myHolder.mAvatarIv);
-//        }
-//        catch (Exception e){
-//
-//        }
+        myHolder.mNameTv.setText(userName);
+        myHolder.mEmailTv.setText(userEmail);
+        try {
+            Picasso.get().load(userImage)
+                    .placeholder(R.drawable.ic_default_img)
+                    .into(myHolder.mAvatarIv);
+        }
+        catch (Exception e){
+
+        }
 
         //handle item click
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -66,25 +66,25 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
             public void onClick(View v) {
                 //show dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setItems(new String[]{"Chat"}, new DialogInterface.OnClickListener() {
+                builder.setItems(new String[]{"Profile", "Chat"}, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        if (which==0){
-//                            //profile clicked
-//                            /*click to go to ThereProfileActivity with uid, this uid is of clicked user
-//                             * which will be used to show user specific data/posts*/
-//                            Intent intent = new Intent(context, ThereProfileActivity.class);
-//                            intent.putExtra("uid",hisUID);
-//                            context.startActivity(intent);
-//                        }
                         if (which==0){
+                            //profile clicked
+                            /*click to go to ThereProfileActivity with uid, this uid is of clicked user
+                             * which will be used to show user specific data/posts*/
+                            Intent intent = new Intent(context, ThereProfileActivity.class);
+                            intent.putExtra("uid",hisUID);
+                            context.startActivity(intent);
+                        }
+                        if (which==1){
                             //chat clicked
                             /*Click user from user list to start chatting/messaging
                              * Start activity by putting UID of receiver
                              * we will use that UID to identify the user we are gonna chat*/
                             Intent intent = new Intent(context, ChatActivity.class);
                             intent.putExtra("hisUid", hisUID);
-                            intent.putExtra("sw","ok");
+                            intent.putExtra("sw","no");
                             context.startActivity(intent);
                         }
                     }
