@@ -9,6 +9,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/users_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent" />
+    //김건호 버튼 추가
+    <Button
+        android:id="@+id/randomchatbtn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
 </FrameLayout>

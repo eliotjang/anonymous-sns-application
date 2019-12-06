@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.blogspot.atifsoftwares.firebaseapp.adapters.AdapterUsers;
 import com.blogspot.atifsoftwares.firebaseapp.models.ModelUser;
@@ -40,6 +41,7 @@ public class UsersFragment extends Fragment {
     RecyclerView recyclerView;
     AdapterUsers adapterUsers;
     List<ModelUser> userList;
+    Button btn; // 랜덤채팅버튼
 
     //firebase auth
     FirebaseAuth firebaseAuth;
@@ -47,7 +49,6 @@ public class UsersFragment extends Fragment {
     public UsersFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,6 +71,18 @@ public class UsersFragment extends Fragment {
         //getAll users
         getAllUsers();
 
+        //김건호 버튼초기화
+        btn=(Button)view.findViewById(R.id.randomchatbtn);
+        btn.setOnClickListener(new Button.OnClickListener() {
+            String hisUID="WBOAGjXA7cUexTdbGh7k4c6Lkm22";
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getActivity(), ChatActivity.class);
+                intent.putExtra("hisUid", hisUID);
+                getActivity().startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -237,5 +250,4 @@ public class UsersFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
