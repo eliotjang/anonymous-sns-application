@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.blogspot.atifsoftwares.firebaseapp.adapters.AdapterRandomUsers;
 import com.blogspot.atifsoftwares.firebaseapp.adapters.AdapterUsers;
 import com.blogspot.atifsoftwares.firebaseapp.models.ModelUser;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +44,7 @@ public class UsersFragment extends Fragment {
     AdapterUsers adapterUsers;
     List<ModelUser> userList;
     ImageButton btn; // 랜덤채팅버튼
+    AdapterRandomUsers adapterRandomUsers;
 
     //firebase auth
     FirebaseAuth firebaseAuth;
@@ -79,9 +81,10 @@ public class UsersFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), ChatActivity.class);
-                intent.putExtra("hisUid", hisUID);
-                getActivity().startActivity(intent);
+                adapterRandomUsers = new AdapterRandomUsers(getActivity(), userList);
+//                Intent intent = new Intent(getActivity(), ChatActivity.class);
+//                intent.putExtra("hisUid", hisUID);
+//                getActivity().startActivity(intent);
             }
         });
         return view;

@@ -2,7 +2,8 @@
     <string name="app_name">Firebase App</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <!-- 장성원: 사용자정의 string으로 randomchatting, questionmark추가-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="randomchatting">Random Chatting!</string>
-    <string name="questionmark">TODO</string>
+    <string name="questionmark">Quention mark!</string>
 </resources>
