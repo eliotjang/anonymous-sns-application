@@ -8,9 +8,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/book"
-        android:label="@string/modazal"
-        android:roundIcon="@drawable/bookround"
+        android:icon="@drawable/firebase_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/firebase_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SettingsActivity" />
