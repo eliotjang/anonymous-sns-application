@@ -15,4 +15,8 @@
         android:title="Chats"
         android:icon="@drawable/ic_chat_black"/>
 
+    <item android:id="@+id/nav_mindpost"
+        android:title="mindpost"
+        android:icon="@drawable/ic_midpos"/>
+
 </menu>
