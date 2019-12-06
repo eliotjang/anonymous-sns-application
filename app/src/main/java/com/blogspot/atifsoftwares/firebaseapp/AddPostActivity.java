@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -57,6 +58,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddPostActivity extends AppCompatActivity {
+    //일단 익명은 되긴함. 버튼 하나로 할 수 있으면 하면 좋을 듯
 
 
     FirebaseAuth firebaseAuth;
@@ -81,6 +83,8 @@ public class AddPostActivity extends AppCompatActivity {
     EditText titleEt, descriptionEt;
     ImageView imageIv;
     Button uploadBtn;
+    Button anonymouseBtn; // gy :익명 버튼
+    Button username;
 
     //user info
     String name, email, uid, dp;
@@ -94,13 +98,16 @@ public class AddPostActivity extends AppCompatActivity {
     //progress bar
     ProgressDialog pd;
 
+    //int flag = 1; // gy : flag가 1이면 실명으로 바꾸고 flag 0이면 익명으로
+    String Aname; // gy : 임시로 이름 저장       데이터에 들어가고 출력되는 값이 Aname에 저장. 데이터에서 받아오는 이름은 name변수에
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
 
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Add New Post");
+        actionBar.setTitle("Add New Post");// gy :작성 화면에 상단 제목
         //enable back button in actionbar
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -120,26 +127,30 @@ public class AddPostActivity extends AppCompatActivity {
         descriptionEt = findViewById(R.id.pDescriptionEt);
         imageIv = findViewById(R.id.pImageIv);
         uploadBtn = findViewById(R.id.pUploadBtn);
+        anonymouseBtn = findViewById(R.id.pAnonymouseBtn); // gy : 버튼에 대한 아이디 가져옴
+        username = findViewById(R.id.pUsernameBtn); // gy : 버튼에 대한 아이디
+
 
         //get data through intent from previous activitie's adapter
         Intent intent = getIntent();
         final String isUpdateKey = ""+intent.getStringExtra("key");
         final String editPostId = ""+intent.getStringExtra("editPostId");
+
         //validate if we came here to update post i.e. came from AdapterPost
-        if (isUpdateKey.equals("editPost")){
+        if (isUpdateKey.equals("editPost")){// gy :수정시
             //update
             actionBar.setTitle("Update Post");
             uploadBtn.setText("Update");
             loadPostData(editPostId);
         }
-        else {
+        else { // 작성시
             //add
             actionBar.setTitle("Add New Post");
             uploadBtn.setText("Upload");
-
+            Aname = name;
         }
 
-        actionBar.setSubtitle(email);
+        actionBar.setSubtitle(email); // gy : add now post아래에 자신의 이메일
 
         //get some info of current user to include in post
         userDbRef = FirebaseDatabase.getInstance().getReference("Users");
@@ -179,11 +190,11 @@ public class AddPostActivity extends AppCompatActivity {
                 //get data(title, description) from EditTexts
                 String title = titleEt.getText().toString().trim();
                 String description = descriptionEt.getText().toString().trim();
-                if (TextUtils.isEmpty(title)){
+                if (TextUtils.isEmpty(title)){ // gy :title 미 입력시 text 출력
                     Toast.makeText(AddPostActivity.this, "Enter title...", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (TextUtils.isEmpty(description)){
+                if (TextUtils.isEmpty(description)){ // gy : 문장 미 입력시 text 출력
                     Toast.makeText(AddPostActivity.this, "Enter description...", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -194,9 +205,42 @@ public class AddPostActivity extends AppCompatActivity {
                 else {
                     uploadData(title, description);
                 }
+                // gy : update버튼 클릭 시 게시판 화면으로 이동
+                Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                startActivity(intent);
 
             }
         });
+
+        // gy : 익명 버튼에 대한 클릭 이벤트 발생
+        anonymouseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              //  if(flag == 1) {// gy : 실명에서 익명으로
+                    //flag = 0;
+                Aname = "anonymouse"; //gy : 이름을 익명으로 만들어줌
+                //anonymouseBtn.setText("user name"); // gy : 버튼 내용을 바꿔줌
+                Toast.makeText(AddPostActivity.this, "name is anonymouse...", Toast.LENGTH_SHORT).show();
+               // } 버튼 하나로 하려 했으나 실패....
+//                else if(flag == 0) {
+//                    flag = 1;
+//                    Aname = name; // gy : 원래 이름은 바꿔줌
+//                    anonymouseBtn.setText("Anonymouse"); // gy : 버튼을 내용을 anonymouse로 바꿔줌
+//
+//                }
+            }
+        });
+
+        //gy : 자신의 이름으로 포스트 하는 버튼 클릭 이벤트 발생
+        username.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Aname = name;
+                Toast.makeText(AddPostActivity.this, "name is yourname...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void beginUpdate(String title, String description, String editPostId) {
@@ -222,7 +266,7 @@ public class AddPostActivity extends AppCompatActivity {
         HashMap<String, Object> hashMap = new HashMap<>();
         //put post info
         hashMap.put("uid", uid);
-        hashMap.put("uName", name);
+        hashMap.put("uName", Aname);
         hashMap.put("uEmail", email);
         hashMap.put("uDp", dp);
         hashMap.put("pTitle", title);
@@ -276,7 +320,7 @@ public class AddPostActivity extends AppCompatActivity {
                             HashMap<String, Object> hashMap = new HashMap<>();
                             //put post info
                             hashMap.put("uid", uid);
-                            hashMap.put("uName", name);
+                            hashMap.put("uName", Aname);
                             hashMap.put("uEmail", email);
                             hashMap.put("uDp", dp);
                             hashMap.put("pTitle", title);
@@ -351,7 +395,7 @@ public class AddPostActivity extends AppCompatActivity {
                                             HashMap<String, Object> hashMap = new HashMap<>();
                                             //put post info
                                             hashMap.put("uid", uid);
-                                            hashMap.put("uName", name);
+                                            hashMap.put("uName", Aname);
                                             hashMap.put("uEmail", email);
                                             hashMap.put("uDp", dp);
                                             hashMap.put("pTitle", title);
@@ -473,7 +517,7 @@ public class AddPostActivity extends AppCompatActivity {
                                 HashMap<Object, String> hashMap = new HashMap<>();
                                 //put post info
                                 hashMap.put("uid", uid);
-                                hashMap.put("uName", name);
+                                hashMap.put("uName", Aname);
                                 hashMap.put("uEmail", email);
                                 hashMap.put("uDp", dp);
                                 hashMap.put("pId", timeStamp);
@@ -539,7 +583,7 @@ public class AddPostActivity extends AppCompatActivity {
             HashMap<Object, String> hashMap = new HashMap<>();
             //put post info
             hashMap.put("uid", uid);
-            hashMap.put("uName", name);
+            hashMap.put("uName", Aname);
             hashMap.put("uEmail", email);
             hashMap.put("uDp", dp);
             hashMap.put("pId", timeStamp);
