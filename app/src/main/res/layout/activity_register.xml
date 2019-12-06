@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#D3FF5722"
         android:textStyle="bold"
         android:layout_marginTop="30dp"
         android:textSize="25sp" />
@@ -58,7 +58,7 @@
     <!--Button: Register User-->
     <Button
         android:id="@+id/registerBtn"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:background="#D3FF5722"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordTIL"

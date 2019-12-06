@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+        android:background="#D3FF5722"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <!--Receiver profile picture-->
         <com.blogspot.atifsoftwares.circularimageview.CircularImageView
@@ -20,7 +20,7 @@
             android:layout_height="35dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_default"
-            app:c_background_color="@color/colorPrimaryDark" />
+            app:c_background_color="#D3FF5722" />
 
 
         <LinearLayout
