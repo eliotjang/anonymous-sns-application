@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MindPostFragment">
+    tools:context=".MindPostFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/postDscEt"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="#B5FF5722"
+        android:gravity="center"
+        android:hint="Enter description"
+        android:inputType="textCapSentences|textMultiLine"
+        android:minHeight="120dp"
+        android:padding="10dp"
+        android:text="남은시간 : 00:00:00"
+        android:textColor="@color/colorWhite"
+        android:textSize="10dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mindpostTime"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#B5FF5722"
+        android:gravity="center"
+        android:hint="Enter description"
+        android:inputType="textCapSentences|textMultiLine"
+        android:minHeight="120dp"
+        android:padding="10dp"
+        android:text="인생이 너무 힘들어요 어떻게 할까요?"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mindpostRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#F8F6F2" />
 
-
-</FrameLayout>
+</LinearLayout>

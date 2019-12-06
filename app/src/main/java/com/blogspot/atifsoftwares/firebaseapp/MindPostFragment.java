@@ -114,7 +114,7 @@ public class MindPostFragment extends Fragment {
     private void searchPosts(final String searchQuery){
 
         //path of all posts
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("MindPosts");
         //get all data from this ref
         ref.addValueEventListener(new ValueEventListener() {
             @Override

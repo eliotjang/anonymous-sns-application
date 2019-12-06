@@ -105,7 +105,7 @@ public class DashboardActivity extends AppCompatActivity {
                             ft4.replace(R.id.content, fragment4, "");
                             ft4.commit();
                             return true;
-                        case R.id.nav_mindpost:
+                       case R.id.nav_mindpost:
                             //users fragment transaction
                             actionBar.setTitle("MindPost");//change actionbar title
                             MindPostFragment fragment5 = new MindPostFragment();

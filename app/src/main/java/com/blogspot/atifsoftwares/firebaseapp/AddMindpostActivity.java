@@ -154,12 +154,12 @@ public class AddMindpostActivity extends AppCompatActivity {
                 //get data(title, description) from EditTexts
                 String description = descriptionEt.getText().toString().trim();
 
-                if (isUpdateKey.equals("editPost")){
+               /* if (isUpdateKey.equals("editPost")){
                     beginUpdate(description, editPostId);
-                }
-                else {
+                }*/
+               // else {
                     uploadData( description);
-                }
+                //}
 
                 // gy : update버튼 클릭 시 게시판 화면으로 이동
                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
@@ -218,7 +218,7 @@ public class AddMindpostActivity extends AppCompatActivity {
         hashMap.put("mDescr", description);
         hashMap.put("mImage", "noImage");
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("MindPosts");
         ref.child(editPostId)
                 .updateChildren(hashMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -239,7 +239,7 @@ public class AddMindpostActivity extends AppCompatActivity {
 
 
     private void loadPostData(String editPostId) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("MindPosts");
         //get detail of post using id of post
         Query fquery = reference.orderByChild("pId").equalTo(editPostId);
         fquery.addValueEventListener(new ValueEventListener() {
@@ -283,7 +283,7 @@ public class AddMindpostActivity extends AppCompatActivity {
             hashMap.put("mLikes", "0");
 
             //path to store post data
-            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts");
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("MindPosts");
             //put data in this ref
             ref.child(timeStamp).setValue(hashMap)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {

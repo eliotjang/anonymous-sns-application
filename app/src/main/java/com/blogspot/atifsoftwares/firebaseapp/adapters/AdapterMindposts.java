@@ -85,18 +85,18 @@ public class AdapterMindposts extends RecyclerView.Adapter<AdapterMindposts.MyHo
     @Override
     public void onBindViewHolder(@NonNull final AdapterMindposts.MyHolder myHolder, final int i) {
         //get data
-        final String uid = MindpostList.get(i).getMUid();
-        String uEmail = MindpostList.get(i).getmEmail();
-        String uName = MindpostList.get(i).getmName();
-        String uDp = MindpostList.get(i).getmDp();
+        final String uid = MindpostList.get(i).getuUid();
+        String uEmail = MindpostList.get(i).getuEmail();
+        String uName = MindpostList.get(i).getuName();
+        String uDp = MindpostList.get(i).getuDp();
         final String pId = MindpostList.get(i).getmId();
         final String pDescription = MindpostList.get(i).getmDescr();
         String pLikes = MindpostList.get(i).getmLikes();
 
         //set data
-        myHolder.uNameTv.setText(uName);
+        //myHolder.uNameTv.setText(uName);
         myHolder.pDescriptionTv.setText(pDescription);
-        myHolder.pLikesTv.setText(pLikes +" Likes"); //e.g. 100 Likes
+        //myHolder.pLikesTv.setText(pLikes +" Likes"); //e.g. 100 Likes
         //set likes for each post
         setLikes(myHolder, pId);
 

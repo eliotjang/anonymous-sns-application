@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "68955392220-18hbbgjegqjbbku6dali7s6049fu3mut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blogspot.atifsoftwares.firebaseapp",
+            "certificate_hash": "6b631fd7c44ea0b21f85d0b85f84fcd299e7a1a2"
+          }
+        },
+        {
           "client_id": "68955392220-a2uq01dtge52u8fitvv7f41v3p90cnhh.apps.googleusercontent.com",
           "client_type": 3
         }

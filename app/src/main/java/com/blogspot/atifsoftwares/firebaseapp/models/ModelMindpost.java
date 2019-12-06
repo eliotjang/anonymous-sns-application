@@ -2,16 +2,22 @@ package com.blogspot.atifsoftwares.firebaseapp.models;
 /*생성자 -->이소연*/
 public class ModelMindpost {
 
-    String mId, mDescr,mLikes, mUid, mEmail, mDp, mName;
 
-    public ModelMindpost(String mId, String mDescr, String mLikes, String muid, String mEmail, String mDp, String mName) {
+    String mId, mDescr, mLikes, uUid, uEmail,uDp,uName ;
+
+
+    public ModelMindpost() {
+
+    }
+
+    public ModelMindpost(String mId, String mDescr, String mLikes, String uUid, String uEmail, String uDp, String uName) {
         this.mId = mId;
         this.mDescr = mDescr;
         this.mLikes = mLikes;
-        this.mUid = muid;
-        this.mEmail = mEmail;
-        this.mDp = mDp;
-        this.mName = mName;
+        this.uUid = uUid;
+        this.uEmail = uEmail;
+        this.uDp = uDp;
+        this.uName = uName;
     }
 
     public String getmId() {
@@ -38,38 +44,35 @@ public class ModelMindpost {
         this.mLikes = mLikes;
     }
 
-    public String getMUid() {
-        return mUid;
+    public String getuUid() {
+        return uUid;
     }
 
-    public void setMUid(String muid) {
-        this.mUid = muid;
+    public void setuUid(String uUid) {
+        this.uUid = uUid;
     }
 
-    public String getmEmail() {
-        return mEmail;
+    public String getuEmail() {
+        return uEmail;
     }
 
-    public void setmEmail(String mEmail) {
-        this.mEmail = mEmail;
+    public void setuEmail(String uEmail) {
+        this.uEmail = uEmail;
     }
 
-    public String getmDp() {
-        return mDp;
+    public String getuDp() {
+        return uDp;
     }
 
-    public void setmDp(String mDp) {
-        this.mDp = mDp;
+    public void setuDp(String uDp) {
+        this.uDp = uDp;
     }
 
-    public String getmName() {
-        return mName;
+    public String getuName() {
+        return uName;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setuName(String uName) {
+        this.uName = uName;
     }
-
-
 }
-
