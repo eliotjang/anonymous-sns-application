@@ -12,7 +12,7 @@
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/book" />
+        android:src="@drawable/firebase_logo" />
 
     <!--Button: Register-->
     <Button
