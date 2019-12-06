@@ -97,12 +97,12 @@ public class FirebaseMessaging extends FirebaseMessagingService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
         //LargeIcon
-        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.firebase_logo);
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.book);
 
         //sound for notification
         Uri notificationSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, ""+ADMIN_CHANNEL_ID)
-                .setSmallIcon(R.drawable.firebase_logo)
+                .setSmallIcon(R.drawable.book)
                 .setLargeIcon(largeIcon)
                 .setContentTitle(pTitle)
                 .setContentText(pDescription)

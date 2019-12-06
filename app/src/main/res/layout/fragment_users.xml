@@ -18,7 +18,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="280dp"
         android:layout_marginLeft="280dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="480dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/questionmark"
         android:scaleType="centerInside"
