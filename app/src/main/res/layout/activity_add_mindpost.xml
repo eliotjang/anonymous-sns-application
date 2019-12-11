@@ -32,7 +32,7 @@
             <!--Button: Publish post to firbease-->
             <Button
                 android:id="@+id/mUploadBtn"
-                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="#D3FF5722"
                 android:text="Upload"
                 android:layout_gravity="end"
                 android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
 
             <Button
                 android:id="@+id/mAnonymouseBtn"
-                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="#D3FF5722"
                 android:text="Anonymouse"
                 android:layout_gravity="end"
                 android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
 
             <Button
                 android:id="@+id/mUsernameBtn"
-                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="#D3FF5722"
                 android:text="Username"
                 android:layout_gravity="end"
                 android:layout_width="wrap_content"

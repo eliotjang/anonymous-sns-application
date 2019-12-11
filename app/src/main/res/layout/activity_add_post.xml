@@ -25,7 +25,7 @@
         <!--ImageView: Input post image-->
         <ImageView
             android:id="@+id/pImageIv"
-            android:background="@color/colorPrimary"
+            android:background="#D3FF5722"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="200dp"/>
@@ -50,7 +50,7 @@
         <!--Button: Publish post to firbease-->
         <Button
             android:id="@+id/pUploadBtn"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:background="#D3FF5722"
             android:text="Upload"
             android:layout_gravity="end"
             android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
 
             <Button
                 android:id="@+id/pAnonymouseBtn"
-                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="#D3FF5722"
                 android:text="Anonymouse"
                 android:layout_gravity="end"
                 android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
 
             <Button
                 android:id="@+id/pUsernameBtn"
-                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="#D3FF5722"
                 android:text="Username"
                 android:layout_gravity="end"
                 android:layout_width="wrap_content"
