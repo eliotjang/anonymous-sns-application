@@ -98,8 +98,16 @@ public class AddPostActivity extends AppCompatActivity {
     //progress bar
     ProgressDialog pd;
 
+    public static boolean anony() {
+        if (Aname.equals("anonymouse")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     //int flag = 1; // gy : flag가 1이면 실명으로 바꾸고 flag 0이면 익명으로
-    String Aname; // gy : 임시로 이름 저장       데이터에 들어가고 출력되는 값이 Aname에 저장. 데이터에서 받아오는 이름은 name변수에
+    static String Aname; // gy : 임시로 이름 저장       데이터에 들어가고 출력되는 값이 Aname에 저장. 데이터에서 받아오는 이름은 name변수에
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
