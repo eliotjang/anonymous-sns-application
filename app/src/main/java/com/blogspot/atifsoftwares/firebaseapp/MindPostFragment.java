@@ -18,6 +18,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.firebaseapp.adapters.AdapterMindposts;
@@ -32,8 +34,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +53,7 @@ public class MindPostFragment extends Fragment {
     RecyclerView recyclerView;
     List<ModelMindpost> MindpostList;
     AdapterMindposts adapterMindposts;
+
 
     public MindPostFragment() {
         // Required empty public constructor
@@ -65,7 +72,6 @@ public class MindPostFragment extends Fragment {
         //recycler view and its properties
         recyclerView = view.findViewById(R.id.mindpostRecyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-
         //show newest post first, for this load from last
         layoutManager.setStackFromEnd(true);
         layoutManager.setReverseLayout(true);
@@ -75,7 +81,6 @@ public class MindPostFragment extends Fragment {
 
         //init post list
         MindpostList = new ArrayList<ModelMindpost>();
-
         loadMindPosts();
 
         return view;
@@ -164,8 +169,9 @@ public class MindPostFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);//to show menu option in fragment
         super.onCreate(savedInstanceState);
-    }
 
+
+    }
     /*inflate options menu  -->메뉴바 옵션바:이소연*/
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

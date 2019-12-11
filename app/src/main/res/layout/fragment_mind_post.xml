@@ -6,7 +6,7 @@
     tools:context=".MindPostFragment"
     android:orientation="vertical">
 
-    <TextView
+    <EditText
         android:id="@+id/postDscEt"
         android:layout_width="match_parent"
         android:layout_height="33dp"
@@ -16,7 +16,7 @@
         android:inputType="textCapSentences|textMultiLine"
         android:minHeight="120dp"
         android:padding="10dp"
-        android:text="남은시간 : 00:00:00"
+        android:text="남은시간 : 3일 남았습니다."
         android:textColor="@color/colorWhite"
         android:textSize="10dp"
         android:textStyle="bold" />

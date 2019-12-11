@@ -52,10 +52,13 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AddMindpostActivity extends AppCompatActivity {
 
@@ -75,7 +78,7 @@ public class AddMindpostActivity extends AppCompatActivity {
 
     //info of post to be edited
     String editDescription;
-
+    static int counter=0;
 
     //progress bar
     ProgressDialog pd;

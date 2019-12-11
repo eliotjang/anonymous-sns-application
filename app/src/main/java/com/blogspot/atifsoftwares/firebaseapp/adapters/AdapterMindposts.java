@@ -109,12 +109,12 @@ public class AdapterMindposts extends RecyclerView.Adapter<AdapterMindposts.MyHo
         }*/
 
         //handle button clicks,
-        myHolder.moreBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showMoreOptions(myHolder.moreBtn, uid, myUid, pId);
-            }
-        });
+//        myHolder.moreBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showMoreOptions(myHolder.moreBtn, uid, myUid, pId);
+//            }
+//        });
 
         //마인드 포스트 공감하기 공감수 :이소연
         myHolder.likeBtn.setOnClickListener(new View.OnClickListener() {
