@@ -55,6 +55,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
     List<ModelPost> postList;
 
     String myUid;
+    boolean anony; // 익명 여부 확인
 
     private DatabaseReference likesRef; //for likes database node
     private DatabaseReference postsRef; //reference of posts
@@ -212,9 +213,12 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             public void onClick(View v) {
                 /*click to go to ThereProfileActivity with uid, this uid is of clicked user
                  * which will be used to show user specific data/posts*/
-                Intent intent = new Intent(context, ThereProfileActivity.class);
-                intent.putExtra("uid",uid);
-                context.startActivity(intent);
+                /*if (!(anony = AddPostActivity.anony())) {
+                    Intent intent = new Intent(context, ThereProfileActivity.class);
+                    intent.putExtra("uid", uid);
+                    context.startActivity(intent);
+                }*/
+
             }
         });
 

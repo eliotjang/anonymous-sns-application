@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/action_logout"
-        android:title="Logout"/>
+        android:title="Logout"
+        />
 
     <item android:id="@+id/action_settings"
         android:title="Settings"/>
@@ -18,5 +19,4 @@
         android:title="Add Post"
         app:showAsAction="always"
         android:icon="@drawable/ic_add_white"/>
-
 </menu>
